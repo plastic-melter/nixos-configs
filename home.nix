@@ -58,13 +58,15 @@ programs.git = {
 wayland.windowManager.hyprland = {
   enable = true;
   xwayland.enable = true;
+  systemd.enable = true;
   extraConfig = ''
 
   '';
   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  #plugins = [
-  #  inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-  #];
+  plugins = [
+    #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    pkgs.hyprlandPlugins.hyprexpo
+  ];
 };
 
 programs.zsh = {
@@ -181,7 +183,7 @@ services.dunst = {
       icon_corner_radius = 5;
       text_icon_padding = 5;
       frame_width = 4;
-      frame_color = "#9B79A8";
+      frame_color = "#D697CF";
       background_color = "#181b28";
       foreground_color = "#ffffd8";
       font = "NotoSansCJK 18";
@@ -669,42 +671,43 @@ programs = {
 
 home.packages = with pkgs; [
 # apps
-  audacious			# music player
-  bluetooth_battery		# fetch info form BT devices
-  cdrdao			# burn files to CDs
-  cmus				# TUI music player
-  deadbeef			# music player
-  dolphin-emu-beta		# latest testing ver
-  eww         # wacky widgets
-  file				# determine file type
-  firefox-wayland		# web browser
-  ffmpeg			# CLI video tool
-  gimp				# image edit suite
-  gnome-bluetooth		# GUI for bluetooth
-  hyprpicker			# color picker
-  imagemagick			# image conv tool
-  kdePackages.kcolorchooser			# hex color tool
-  kdePackages.kdenlive #video editor
-  libreoffice-fresh		# latest stable ver
-  lutris			# game manager
-  mupdf				# pdf viewer
-  pamixer			# pulseaudio tool
-  pavucontrol			# pulse gui tool
-  playerctl			# utility, supports many
-  protontricks			# proton extras
-  prusa-slicer			# Prusa's slicer!
-  qbittorrent			# torrent client
-  spotdl			# download spotify songs
-  spotify			# electron client
-  tagainijisho			# JP dictionary
-  vlc				# media player
-  wev				# dentify keysyms
-  wl-clipboard			# wayland copy-paste
-  wf-recorder			# wlroots screen recorder
-  xmlstarlet			# modify xml files or something
-  zathura			# document viewer
-  zsh-powerlevel10k		# neat ZSH prompt
-  zoom-us			# shit
+  audacious                 # music player
+  bluetooth_battery         # fetch info form BT devices
+  cdrdao                    # burn files to CDs
+  cmus                      # TUI music player
+  deadbeef                  # music player
+  dolphin-emu-beta          # latest testing ver
+  eww                       # wacky widgets
+  file                      # determine file type
+  firefox-wayland           # web browser
+  ffmpeg                    # CLI video tool
+  gimp                      # image edit suite
+  gnome-bluetooth           # GUI for bluetooth
+  hyprpicker                # color picker tool
+  imagemagick               # image conv tool
+  kdePackages.kcolorchooser # hex color tool
+  kdePackages.kdenlive      # video editor
+  libreoffice-fresh         # latest stable ver
+  lutris                    # game manager
+  mupdf                     # pdf viewer
+  pamixer                   # pulseaudio tool
+  pavucontrol               # pulse gui tool
+  playerctl                 # utility, supports many
+  protontricks              # proton extras
+  prusa-slicer              # Prusa's slicer
+  qbittorrent               # torrent client
+  qalculate-qt              # gui calculator
+  qalculate-gtk             # gui calculator
+  spotify                   # electron client
+  tagainijisho              # JP dictionary
+  vlc                       # media player
+  wev                       # identify keysyms
+  wl-clipboard              # wayland copy-paste
+  wf-recorder               # wlroots screen recorder
+  xmlstarlet                # modify xml files or something
+  zathura                   # document viewer
+  zsh-powerlevel10k         # neat ZSH prompt
+  zoom-us                   # shit software
 ];
 
 qt = {

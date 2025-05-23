@@ -347,7 +347,7 @@ environment.systemPackages = with pkgs; [
   libsixel				# terminal images
   libmtp				# for mounting Android
   light					# backlight control
-  linuxKernel.packages.linux_6_1.cpupower	# cpu util
+  linuxKernel.packages.linux_6_1.cpupower # cpu util
   lm_sensors				# HW sensors
   lounge-gtk-theme			# gtk theme
   lshw					# HW tool
@@ -397,6 +397,7 @@ environment.systemPackages = with pkgs; [
   xfce.thunar				# GUI file manager
   zenmonitor				# AMD HW monitor
 
+  # Package Overrides
   (catppuccin-sddm.override {
     flavor = "mocha";
     font  = "Noto Sans";
